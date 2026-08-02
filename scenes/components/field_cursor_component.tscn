@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://lhic2kry3o70"]
+
+[node name="FieldCursorComponent" type="Node"]

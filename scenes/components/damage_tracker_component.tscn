@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhb1nvor61eig"]
+
+[ext_resource type="Script" uid="uid://bdv7cjx8s850x" path="res://scenes/components/damage_tracker_component.gd" id="1_rthod"]
+
+[node name="DamageTrackerComponent" type="Node2D"]
+script = ExtResource("1_rthod")
