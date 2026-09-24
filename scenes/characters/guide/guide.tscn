@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy1pixvyggurd"]
+
+[ext_resource type="Texture2D" uid="uid://dn5jgcdebhmk0" path="res://assets/game/characters/basic_character_spritesheet.png" id="1_jyi48"]
+[ext_resource type="Script" uid="uid://j4pf80fb63ko" path="res://scenes/characters/guide/guide.gd" id="1_yvxhl"]
+[ext_resource type="PackedScene" uid="uid://ctdsek34ytl1t" path="res://scenes/components/interactable_component.tscn" id="2_6kgm4"]
+[ext_resource type="PackedScene" uid="uid://bueiga72gobdk" path="res://scenes/components/interactable_label_component.tscn" id="4_pdv8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3e3k"]
+atlas = ExtResource("1_jyi48")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gstws"]
+atlas = ExtResource("1_jyi48")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45i2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3e3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gstws")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4yd68"]
+radius = 22.0227
+
+[node name="Guide" type="Node2D"]
+script = ExtResource("1_yvxhl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_45i2m")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.00992791
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_6kgm4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_4yd68")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_pdv8u")]
+offset_left = -9.0
+offset_top = -36.0
+offset_right = 9.0
+offset_bottom = -18.0
